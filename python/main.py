@@ -1,22 +1,26 @@
 from MOTOR import MOTOR
-import keyboard
-
 
 try:
     motor1 = MOTOR(port=1)
     motor2 = MOTOR(port=2)
     STEP = 200
-    DELAY = 0.0005
-    # It records all the keys until escape is pressed
-    rk = keyboard.record(until ='Esc')
-    # It replay back the all keys
-    keyboard.play(rk, speed_factor = 1)
-    # keyboard.add_hotkey('w', lambda: motor2.turnStep(dir='L', steps=STEP, stepdelay=DELAY))
-    # keyboard.add_hotkey('s', lambda: motor2.turnStep(dir='R', steps=STEP, stepdelay=DELAY))
-    # keyboard.add_hotkey('a', lambda: motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY))
-    # keyboard.add_hotkey('d', lambda: motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY))
+    DELAY = 0.00005
 
-    # keyboard.wait('esc')
+    while True:
+        print('Enter command:')
+        command = input()
+        if (command == "w"):
+            motor2.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
+        elif (command == "s"):
+            motor2.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
+        elif (command == "a"):
+            motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
+        elif (command == "d"):
+            motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
+        elif (command == "q"):
+            exit()
+        motor1.stop()
+        motor2.stop()
 
 except:
     print("\nMotor stop")
