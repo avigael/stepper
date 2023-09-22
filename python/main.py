@@ -20,7 +20,7 @@ try:
             motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
         elif (command == "d"):
             motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
-        else:
+        elif (command == "q"):
             exit()
         motor1.stop()
         motor2.stop()
