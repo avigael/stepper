@@ -9,16 +9,16 @@ try:
     DELAY = 0.00005
 
     while True:
-        if (keyboard.is_pressed() == "w"):
+        if (keyboard.is_pressed('w')):
             motor2.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed() == "s"):
+        elif (keyboard.is_pressed('s')):
             motor2.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed() == "a"):
+        elif (keyboard.is_pressed('a')):
             motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed() == "d"):
+        elif (keyboard.is_pressed('d')):
             motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed() == "q"):
-            exit()
+        elif (keyboard.is_pressed('q')):
+            break;
 
 except:
     print("\nMotor stop")
