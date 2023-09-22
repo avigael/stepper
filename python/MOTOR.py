@@ -19,7 +19,7 @@ class MOTOR():
         GPIO.setup(self.step_pin, GPIO.OUT)
         GPIO.setup(self.enable_pin, GPIO.OUT)
         GPIO.setup(self.mode_pins, GPIO.OUT)
-        self.digital_write(self.mode_pins, [(0, 0, 0)])
+        self.digital_write(self.mode_pins, (0, 0, 0))
         
     def digital_write(self, pin, value):
         GPIO.output(pin, value)
