@@ -3,7 +3,7 @@ from MOTOR import MOTOR
 
 motor1 = MOTOR(port=1)
 motor2 = MOTOR(port=2)
-STEP = 200
+STEP = 400
 DELAY = 0.0005
 
 def press(command):
