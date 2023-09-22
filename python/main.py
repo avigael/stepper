@@ -6,22 +6,20 @@ from MOTOR import MOTOR
 try:
     motor1 = MOTOR(port=1)
     motor2 = MOTOR(port=2)
-    motor1.turnStep(dir='L', steps=200, stepdelay = 0.005)
-    time.sleep(0.5)
-    motor1.turnStep(dir='R', steps=400, stepdelay = 0.005)
-    motor1.stop()
+    STEP = 200
+    DELAY = 0.0005
 
     while True:
         print('Enter command:')
         command = input()
         if (command == "w"):
-            motor2.turnStep(dir='L', steps=200)
+            motor2.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
         elif (command == "s"):
-            motor2.turnStep(dir='R', steps=200)
+            motor2.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
         elif (command == "a"):
-            motor1.turnStep(dir='L', steps=200)
+            motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
         elif (command == "d"):
-            motor1.turnStep(dir='R', steps=200)
+            motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
         else:
             exit()
         motor1.stop()
