@@ -8,17 +8,12 @@ try:
     STEP = 200
     DELAY = 0.00005
 
-    while True:
-        if (keyboard.is_pressed('w')):
-            motor2.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed('s')):
-            motor2.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed('a')):
-            motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed('d')):
-            motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY)
-        elif (keyboard.is_pressed('q')):
-            break;
+    keyboard.add_hotkey('w', lambda: motor2.turnStep(dir='L', steps=STEP, stepdelay=DELAY))
+    keyboard.add_hotkey('s', lambda: motor2.turnStep(dir='R', steps=STEP, stepdelay=DELAY))
+    keyboard.add_hotkey('a', lambda: motor1.turnStep(dir='L', steps=STEP, stepdelay=DELAY))
+    keyboard.add_hotkey('d', lambda: motor1.turnStep(dir='R', steps=STEP, stepdelay=DELAY))
+
+    keyboard.wait('esc')
 
 except:
     print("\nMotor stop")
